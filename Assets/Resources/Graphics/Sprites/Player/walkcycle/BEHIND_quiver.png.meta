@@ -1,0 +1,774 @@
+fileFormatVersion: 2
+guid: b25194cb122c648c58f0a4eea7104e8c
+timeCreated: 1456592369
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: BEHIND_quiver_0
+    21300002: BEHIND_quiver_1
+    21300004: BEHIND_quiver_2
+    21300006: BEHIND_quiver_3
+    21300008: BEHIND_quiver_4
+    21300010: BEHIND_quiver_5
+    21300012: BEHIND_quiver_6
+    21300014: BEHIND_quiver_7
+    21300016: BEHIND_quiver_8
+    21300018: BEHIND_quiver_9
+    21300020: BEHIND_quiver_10
+    21300022: BEHIND_quiver_11
+    21300024: BEHIND_quiver_12
+    21300026: BEHIND_quiver_13
+    21300028: BEHIND_quiver_14
+    21300030: BEHIND_quiver_15
+    21300032: BEHIND_quiver_16
+    21300034: BEHIND_quiver_17
+    21300036: BEHIND_quiver_18
+    21300038: BEHIND_quiver_19
+    21300040: BEHIND_quiver_20
+    21300042: BEHIND_quiver_21
+    21300044: BEHIND_quiver_22
+    21300046: BEHIND_quiver_23
+    21300048: BEHIND_quiver_24
+    21300050: BEHIND_quiver_25
+    21300052: BEHIND_quiver_26
+    21300054: BEHIND_quiver_27
+    21300056: BEHIND_quiver_28
+    21300058: BEHIND_quiver_29
+    21300060: BEHIND_quiver_30
+    21300062: BEHIND_quiver_31
+    21300064: BEHIND_quiver_32
+    21300066: BEHIND_quiver_33
+    21300068: BEHIND_quiver_34
+    21300070: BEHIND_quiver_35
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: BEHIND_quiver_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 27}
+        - {x: -19, y: 15}
+        - {x: -19, y: 7}
+        - {x: -10, y: 7}
+        - {x: 1, y: 17}
+        - {x: 1, y: 23}
+        - {x: -1, y: 27}
+    - name: BEHIND_quiver_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 27}
+        - {x: -19, y: 15}
+        - {x: -19, y: 7}
+        - {x: -10, y: 7}
+        - {x: 1, y: 17}
+        - {x: 1, y: 23}
+        - {x: -1, y: 27}
+    - name: BEHIND_quiver_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 27}
+        - {x: -19, y: 15}
+        - {x: -19, y: 7}
+        - {x: -10, y: 7}
+        - {x: 1, y: 17}
+        - {x: 1, y: 23}
+        - {x: -1, y: 27}
+    - name: BEHIND_quiver_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 26}
+        - {x: -19, y: 14}
+        - {x: -19, y: 6}
+        - {x: -10, y: 6}
+        - {x: 1, y: 16}
+        - {x: 1, y: 22}
+        - {x: -1, y: 26}
+    - name: BEHIND_quiver_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 27}
+        - {x: -19, y: 15}
+        - {x: -19, y: 7}
+        - {x: -10, y: 7}
+        - {x: 1, y: 17}
+        - {x: 1, y: 23}
+        - {x: -1, y: 27}
+    - name: BEHIND_quiver_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 27}
+        - {x: -19, y: 15}
+        - {x: -19, y: 7}
+        - {x: -10, y: 7}
+        - {x: 1, y: 17}
+        - {x: 1, y: 23}
+        - {x: -1, y: 27}
+    - name: BEHIND_quiver_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 27}
+        - {x: -19, y: 15}
+        - {x: -19, y: 7}
+        - {x: -10, y: 7}
+        - {x: 1, y: 17}
+        - {x: 1, y: 23}
+        - {x: -1, y: 27}
+    - name: BEHIND_quiver_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 26}
+        - {x: -19, y: 14}
+        - {x: -19, y: 6}
+        - {x: -10, y: 6}
+        - {x: 1, y: 16}
+        - {x: 1, y: 22}
+        - {x: -1, y: 26}
+    - name: BEHIND_quiver_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 27}
+        - {x: -19, y: 15}
+        - {x: -19, y: 7}
+        - {x: -10, y: 7}
+        - {x: 1, y: 17}
+        - {x: 1, y: 23}
+        - {x: -1, y: 27}
+    - name: BEHIND_quiver_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 27}
+        - {x: -19, y: 25}
+        - {x: -19, y: 19}
+        - {x: -6, y: 7}
+        - {x: 0, y: 7}
+        - {x: 1, y: 9}
+        - {x: 1, y: 19}
+        - {x: -10, y: 27}
+    - name: BEHIND_quiver_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 26}
+        - {x: -19, y: 24}
+        - {x: -19, y: 19}
+        - {x: -5, y: 5}
+        - {x: 0, y: 5}
+        - {x: 1, y: 8}
+        - {x: 1, y: 19}
+        - {x: -9, y: 26}
+    - name: BEHIND_quiver_11
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 27}
+        - {x: -19, y: 25}
+        - {x: -19, y: 20}
+        - {x: -5, y: 6}
+        - {x: 0, y: 6}
+        - {x: 1, y: 9}
+        - {x: 1, y: 19}
+        - {x: -10, y: 27}
+    - name: BEHIND_quiver_12
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 27}
+        - {x: -19, y: 25}
+        - {x: -19, y: 20}
+        - {x: -5, y: 6}
+        - {x: 0, y: 6}
+        - {x: 1, y: 9}
+        - {x: 1, y: 19}
+        - {x: -10, y: 27}
+    - name: BEHIND_quiver_13
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 27}
+        - {x: -19, y: 25}
+        - {x: -19, y: 20}
+        - {x: -5, y: 6}
+        - {x: 0, y: 6}
+        - {x: 1, y: 9}
+        - {x: 1, y: 19}
+        - {x: -10, y: 27}
+    - name: BEHIND_quiver_14
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 26}
+        - {x: -19, y: 24}
+        - {x: -19, y: 19}
+        - {x: -5, y: 5}
+        - {x: 0, y: 5}
+        - {x: 1, y: 8}
+        - {x: 1, y: 19}
+        - {x: -9, y: 26}
+    - name: BEHIND_quiver_15
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 27}
+        - {x: -19, y: 25}
+        - {x: -19, y: 20}
+        - {x: -5, y: 6}
+        - {x: 0, y: 6}
+        - {x: 1, y: 9}
+        - {x: 1, y: 19}
+        - {x: -10, y: 27}
+    - name: BEHIND_quiver_16
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 27}
+        - {x: -19, y: 25}
+        - {x: -19, y: 20}
+        - {x: -5, y: 6}
+        - {x: 0, y: 6}
+        - {x: 1, y: 9}
+        - {x: 1, y: 19}
+        - {x: -10, y: 27}
+    - name: BEHIND_quiver_17
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 27}
+        - {x: -19, y: 25}
+        - {x: -19, y: 20}
+        - {x: -5, y: 6}
+        - {x: 0, y: 6}
+        - {x: 1, y: 9}
+        - {x: 1, y: 19}
+        - {x: -10, y: 27}
+    - name: BEHIND_quiver_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12, y: 25}
+        - {x: 9, y: 24}
+        - {x: 1, y: 17}
+        - {x: 1, y: 7}
+        - {x: 2, y: 4}
+        - {x: 7, y: 4}
+        - {x: 21, y: 16}
+        - {x: 21, y: 20}
+        - {x: 19, y: 25}
+    - name: BEHIND_quiver_19
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12, y: 25}
+        - {x: 9, y: 24}
+        - {x: 1, y: 17}
+        - {x: 1, y: 7}
+        - {x: 2, y: 4}
+        - {x: 7, y: 4}
+        - {x: 21, y: 16}
+        - {x: 21, y: 20}
+        - {x: 19, y: 25}
+    - name: BEHIND_quiver_20
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12, y: 25}
+        - {x: 9, y: 24}
+        - {x: 1, y: 17}
+        - {x: 1, y: 7}
+        - {x: 2, y: 4}
+        - {x: 7, y: 4}
+        - {x: 21, y: 16}
+        - {x: 21, y: 20}
+        - {x: 19, y: 25}
+    - name: BEHIND_quiver_21
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12, y: 24}
+        - {x: 9, y: 23}
+        - {x: 1, y: 16}
+        - {x: 1, y: 6}
+        - {x: 2, y: 3}
+        - {x: 7, y: 3}
+        - {x: 21, y: 15}
+        - {x: 21, y: 19}
+        - {x: 19, y: 24}
+    - name: BEHIND_quiver_22
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12, y: 25}
+        - {x: 9, y: 24}
+        - {x: 1, y: 17}
+        - {x: 1, y: 7}
+        - {x: 2, y: 4}
+        - {x: 7, y: 4}
+        - {x: 21, y: 16}
+        - {x: 21, y: 20}
+        - {x: 19, y: 25}
+    - name: BEHIND_quiver_23
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12, y: 25}
+        - {x: 9, y: 24}
+        - {x: 1, y: 17}
+        - {x: 1, y: 7}
+        - {x: 2, y: 4}
+        - {x: 7, y: 4}
+        - {x: 21, y: 16}
+        - {x: 21, y: 20}
+        - {x: 19, y: 25}
+    - name: BEHIND_quiver_24
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12, y: 25}
+        - {x: 9, y: 24}
+        - {x: 1, y: 17}
+        - {x: 1, y: 7}
+        - {x: 2, y: 4}
+        - {x: 7, y: 4}
+        - {x: 21, y: 16}
+        - {x: 21, y: 20}
+        - {x: 19, y: 25}
+    - name: BEHIND_quiver_25
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12, y: 24}
+        - {x: 9, y: 23}
+        - {x: 1, y: 16}
+        - {x: 1, y: 6}
+        - {x: 2, y: 3}
+        - {x: 7, y: 3}
+        - {x: 21, y: 15}
+        - {x: 21, y: 19}
+        - {x: 19, y: 24}
+    - name: BEHIND_quiver_26
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19, y: 25}
+        - {x: 13, y: 25}
+        - {x: 9, y: 24}
+        - {x: 1, y: 17}
+        - {x: 1, y: 7}
+        - {x: 2, y: 5}
+        - {x: 8, y: 5}
+        - {x: 21, y: 17}
+        - {x: 21, y: 20}
+    - name: BEHIND_quiver_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 27}
+        - {x: -1, y: 16}
+        - {x: -1, y: 6}
+        - {x: 8, y: 6}
+        - {x: 19, y: 18}
+        - {x: 19, y: 22}
+        - {x: 17, y: 27}
+    - name: BEHIND_quiver_28
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 10, y: 26}
+        - {x: 7, y: 25}
+        - {x: -1, y: 15}
+        - {x: -1, y: 6}
+        - {x: 2, y: 5}
+        - {x: 8, y: 5}
+        - {x: 19, y: 17}
+        - {x: 19, y: 21}
+        - {x: 17, y: 26}
+    - name: BEHIND_quiver_29
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 27}
+        - {x: -1, y: 16}
+        - {x: -1, y: 6}
+        - {x: 8, y: 6}
+        - {x: 19, y: 18}
+        - {x: 19, y: 22}
+        - {x: 17, y: 27}
+    - name: BEHIND_quiver_30
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 27}
+        - {x: -1, y: 16}
+        - {x: -1, y: 6}
+        - {x: 8, y: 6}
+        - {x: 19, y: 18}
+        - {x: 19, y: 22}
+        - {x: 17, y: 27}
+    - name: BEHIND_quiver_31
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 27}
+        - {x: -1, y: 16}
+        - {x: -1, y: 6}
+        - {x: 8, y: 6}
+        - {x: 19, y: 18}
+        - {x: 19, y: 22}
+        - {x: 17, y: 27}
+    - name: BEHIND_quiver_32
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 10, y: 26}
+        - {x: 7, y: 25}
+        - {x: -1, y: 15}
+        - {x: -1, y: 6}
+        - {x: 2, y: 5}
+        - {x: 8, y: 5}
+        - {x: 19, y: 17}
+        - {x: 19, y: 21}
+        - {x: 17, y: 26}
+    - name: BEHIND_quiver_33
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 27}
+        - {x: -1, y: 16}
+        - {x: -1, y: 6}
+        - {x: 8, y: 6}
+        - {x: 19, y: 18}
+        - {x: 19, y: 22}
+        - {x: 17, y: 27}
+    - name: BEHIND_quiver_34
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 27}
+        - {x: -1, y: 16}
+        - {x: -1, y: 6}
+        - {x: 8, y: 6}
+        - {x: 19, y: 18}
+        - {x: 19, y: 22}
+        - {x: 17, y: 27}
+    - name: BEHIND_quiver_35
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17, y: 27}
+        - {x: 11, y: 27}
+        - {x: 7, y: 26}
+        - {x: -1, y: 19}
+        - {x: -1, y: 9}
+        - {x: 0, y: 7}
+        - {x: 6, y: 7}
+        - {x: 19, y: 19}
+        - {x: 19, y: 22}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

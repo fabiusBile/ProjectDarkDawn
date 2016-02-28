@@ -1,0 +1,811 @@
+fileFormatVersion: 2
+guid: 18391208d16324745b98a1b8672bc1da
+timeCreated: 1456620587
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: HEAD_leather_armor_hat_0
+    21300002: HEAD_leather_armor_hat_1
+    21300004: HEAD_leather_armor_hat_2
+    21300006: HEAD_leather_armor_hat_3
+    21300008: HEAD_leather_armor_hat_4
+    21300010: HEAD_leather_armor_hat_5
+    21300012: HEAD_leather_armor_hat_6
+    21300014: HEAD_leather_armor_hat_7
+    21300016: HEAD_leather_armor_hat_8
+    21300018: HEAD_leather_armor_hat_9
+    21300020: HEAD_leather_armor_hat_10
+    21300022: HEAD_leather_armor_hat_11
+    21300024: HEAD_leather_armor_hat_12
+    21300026: HEAD_leather_armor_hat_13
+    21300028: HEAD_leather_armor_hat_14
+    21300030: HEAD_leather_armor_hat_15
+    21300032: HEAD_leather_armor_hat_16
+    21300034: HEAD_leather_armor_hat_17
+    21300036: HEAD_leather_armor_hat_18
+    21300038: HEAD_leather_armor_hat_19
+    21300040: HEAD_leather_armor_hat_20
+    21300042: HEAD_leather_armor_hat_21
+    21300044: HEAD_leather_armor_hat_22
+    21300046: HEAD_leather_armor_hat_23
+    21300048: HEAD_leather_armor_hat_24
+    21300050: HEAD_leather_armor_hat_25
+    21300052: HEAD_leather_armor_hat_26
+    21300054: HEAD_leather_armor_hat_27
+    21300056: HEAD_leather_armor_hat_28
+    21300058: HEAD_leather_armor_hat_29
+    21300060: HEAD_leather_armor_hat_30
+    21300062: HEAD_leather_armor_hat_31
+    21300064: HEAD_leather_armor_hat_32
+    21300066: HEAD_leather_armor_hat_33
+    21300068: HEAD_leather_armor_hat_34
+    21300070: HEAD_leather_armor_hat_35
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 50
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: HEAD_leather_armor_hat_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 55}
+        - {x: -12, y: 51}
+        - {x: -12, y: 29}
+        - {x: -10, y: 26}
+        - {x: 13, y: 26}
+        - {x: 13, y: 47}
+        - {x: 5, y: 55}
+    - name: HEAD_leather_armor_hat_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 55}
+        - {x: -12, y: 51}
+        - {x: -12, y: 29}
+        - {x: -10, y: 26}
+        - {x: 13, y: 26}
+        - {x: 13, y: 47}
+        - {x: 5, y: 55}
+    - name: HEAD_leather_armor_hat_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 55}
+        - {x: -12, y: 51}
+        - {x: -12, y: 29}
+        - {x: -10, y: 26}
+        - {x: 13, y: 26}
+        - {x: 13, y: 47}
+        - {x: 5, y: 55}
+    - name: HEAD_leather_armor_hat_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 54}
+        - {x: -12, y: 50}
+        - {x: -12, y: 28}
+        - {x: -10, y: 25}
+        - {x: 13, y: 25}
+        - {x: 13, y: 46}
+        - {x: 5, y: 54}
+    - name: HEAD_leather_armor_hat_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 55}
+        - {x: -12, y: 51}
+        - {x: -12, y: 29}
+        - {x: -10, y: 26}
+        - {x: 13, y: 26}
+        - {x: 13, y: 47}
+        - {x: 5, y: 55}
+    - name: HEAD_leather_armor_hat_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 55}
+        - {x: -12, y: 51}
+        - {x: -12, y: 29}
+        - {x: -10, y: 26}
+        - {x: 13, y: 26}
+        - {x: 13, y: 47}
+        - {x: 5, y: 55}
+    - name: HEAD_leather_armor_hat_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 55}
+        - {x: -12, y: 51}
+        - {x: -12, y: 29}
+        - {x: -10, y: 26}
+        - {x: 13, y: 26}
+        - {x: 13, y: 47}
+        - {x: 5, y: 55}
+    - name: HEAD_leather_armor_hat_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 54}
+        - {x: -12, y: 50}
+        - {x: -12, y: 28}
+        - {x: -10, y: 25}
+        - {x: 13, y: 25}
+        - {x: 13, y: 46}
+        - {x: 5, y: 54}
+    - name: HEAD_leather_armor_hat_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 55}
+        - {x: -12, y: 51}
+        - {x: -12, y: 29}
+        - {x: -10, y: 26}
+        - {x: 13, y: 26}
+        - {x: 13, y: 47}
+        - {x: 5, y: 55}
+    - name: HEAD_leather_armor_hat_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 32}
+        - {x: 18, y: 32}
+        - {x: 24, y: 39}
+        - {x: 24, y: 51}
+        - {x: 16, y: 55}
+        - {x: -4, y: 55}
+        - {x: -16, y: 49}
+        - {x: -16, y: 38}
+    - name: HEAD_leather_armor_hat_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1, y: 54}
+        - {x: -16, y: 48}
+        - {x: -16, y: 34}
+        - {x: -15, y: 31}
+        - {x: 19, y: 31}
+        - {x: 24, y: 32}
+        - {x: 24, y: 50}
+        - {x: 15, y: 54}
+    - name: HEAD_leather_armor_hat_11
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 32}
+        - {x: 18, y: 32}
+        - {x: 24, y: 39}
+        - {x: 24, y: 51}
+        - {x: 16, y: 55}
+        - {x: -4, y: 55}
+        - {x: -16, y: 49}
+        - {x: -16, y: 38}
+    - name: HEAD_leather_armor_hat_12
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 32}
+        - {x: 18, y: 32}
+        - {x: 24, y: 39}
+        - {x: 24, y: 51}
+        - {x: 16, y: 55}
+        - {x: -4, y: 55}
+        - {x: -16, y: 49}
+        - {x: -16, y: 38}
+    - name: HEAD_leather_armor_hat_13
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 32}
+        - {x: 18, y: 32}
+        - {x: 24, y: 39}
+        - {x: 24, y: 51}
+        - {x: 16, y: 55}
+        - {x: -4, y: 55}
+        - {x: -16, y: 49}
+        - {x: -16, y: 38}
+    - name: HEAD_leather_armor_hat_14
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 31}
+        - {x: 18, y: 31}
+        - {x: 24, y: 38}
+        - {x: 24, y: 50}
+        - {x: 16, y: 54}
+        - {x: -4, y: 54}
+        - {x: -16, y: 48}
+        - {x: -16, y: 37}
+    - name: HEAD_leather_armor_hat_15
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 32}
+        - {x: 18, y: 32}
+        - {x: 24, y: 39}
+        - {x: 24, y: 51}
+        - {x: 16, y: 55}
+        - {x: -4, y: 55}
+        - {x: -16, y: 49}
+        - {x: -16, y: 38}
+    - name: HEAD_leather_armor_hat_16
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 32}
+        - {x: 18, y: 32}
+        - {x: 24, y: 39}
+        - {x: 24, y: 51}
+        - {x: 16, y: 55}
+        - {x: -4, y: 55}
+        - {x: -16, y: 49}
+        - {x: -16, y: 38}
+    - name: HEAD_leather_armor_hat_17
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 32}
+        - {x: 18, y: 32}
+        - {x: 24, y: 39}
+        - {x: 24, y: 51}
+        - {x: 16, y: 55}
+        - {x: -4, y: 55}
+        - {x: -16, y: 49}
+        - {x: -16, y: 38}
+    - name: HEAD_leather_armor_hat_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 57}
+        - {x: -7, y: 60}
+        - {x: -15, y: 60}
+        - {x: -16, y: 59}
+        - {x: -16, y: 38}
+        - {x: -11, y: 34}
+        - {x: 12, y: 34}
+        - {x: 15, y: 36}
+        - {x: 15, y: 49}
+        - {x: 14, y: 54}
+    - name: HEAD_leather_armor_hat_19
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 57}
+        - {x: -7, y: 60}
+        - {x: -15, y: 60}
+        - {x: -16, y: 59}
+        - {x: -16, y: 38}
+        - {x: -11, y: 34}
+        - {x: 12, y: 34}
+        - {x: 15, y: 36}
+        - {x: 15, y: 49}
+        - {x: 14, y: 54}
+    - name: HEAD_leather_armor_hat_20
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 57}
+        - {x: -7, y: 60}
+        - {x: -15, y: 60}
+        - {x: -16, y: 59}
+        - {x: -16, y: 38}
+        - {x: -11, y: 34}
+        - {x: 12, y: 34}
+        - {x: 15, y: 36}
+        - {x: 15, y: 49}
+        - {x: 14, y: 54}
+    - name: HEAD_leather_armor_hat_21
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 56}
+        - {x: -7, y: 59}
+        - {x: -15, y: 59}
+        - {x: -16, y: 58}
+        - {x: -16, y: 37}
+        - {x: -11, y: 33}
+        - {x: 12, y: 33}
+        - {x: 15, y: 35}
+        - {x: 15, y: 48}
+        - {x: 14, y: 53}
+    - name: HEAD_leather_armor_hat_22
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 57}
+        - {x: -7, y: 60}
+        - {x: -15, y: 60}
+        - {x: -16, y: 59}
+        - {x: -16, y: 38}
+        - {x: -11, y: 34}
+        - {x: 12, y: 34}
+        - {x: 15, y: 36}
+        - {x: 15, y: 49}
+        - {x: 14, y: 54}
+    - name: HEAD_leather_armor_hat_23
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 57}
+        - {x: -7, y: 60}
+        - {x: -15, y: 60}
+        - {x: -16, y: 59}
+        - {x: -16, y: 38}
+        - {x: -11, y: 34}
+        - {x: 12, y: 34}
+        - {x: 15, y: 36}
+        - {x: 15, y: 49}
+        - {x: 14, y: 54}
+    - name: HEAD_leather_armor_hat_24
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 57}
+        - {x: -7, y: 60}
+        - {x: -15, y: 60}
+        - {x: -16, y: 59}
+        - {x: -16, y: 38}
+        - {x: -11, y: 34}
+        - {x: 12, y: 34}
+        - {x: 15, y: 36}
+        - {x: 15, y: 49}
+        - {x: 14, y: 54}
+    - name: HEAD_leather_armor_hat_25
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 56}
+        - {x: -7, y: 59}
+        - {x: -15, y: 59}
+        - {x: -16, y: 58}
+        - {x: -16, y: 37}
+        - {x: -11, y: 33}
+        - {x: 12, y: 33}
+        - {x: 15, y: 35}
+        - {x: 15, y: 48}
+        - {x: 14, y: 53}
+    - name: HEAD_leather_armor_hat_26
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 57}
+        - {x: -7, y: 60}
+        - {x: -15, y: 60}
+        - {x: -16, y: 59}
+        - {x: -16, y: 38}
+        - {x: -11, y: 34}
+        - {x: 12, y: 34}
+        - {x: 15, y: 36}
+        - {x: 15, y: 49}
+        - {x: 14, y: 54}
+    - name: HEAD_leather_armor_hat_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: 48}
+        - {x: 5, y: 55}
+        - {x: -13, y: 55}
+        - {x: -24, y: 51}
+        - {x: -24, y: 47}
+        - {x: -20, y: 42}
+        - {x: -11, y: 32}
+        - {x: -8, y: 32}
+        - {x: 10, y: 36}
+        - {x: 15, y: 40}
+        - {x: 16, y: 43}
+    - name: HEAD_leather_armor_hat_28
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 54}
+        - {x: -13, y: 54}
+        - {x: -24, y: 50}
+        - {x: -24, y: 46}
+        - {x: -12, y: 31}
+        - {x: -3, y: 31}
+        - {x: 11, y: 34}
+        - {x: 15, y: 39}
+        - {x: 16, y: 42}
+        - {x: 16, y: 47}
+    - name: HEAD_leather_armor_hat_29
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: 48}
+        - {x: 5, y: 55}
+        - {x: -13, y: 55}
+        - {x: -24, y: 51}
+        - {x: -24, y: 47}
+        - {x: -20, y: 42}
+        - {x: -11, y: 32}
+        - {x: -8, y: 32}
+        - {x: 10, y: 36}
+        - {x: 15, y: 40}
+        - {x: 16, y: 43}
+    - name: HEAD_leather_armor_hat_30
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: 48}
+        - {x: 5, y: 55}
+        - {x: -13, y: 55}
+        - {x: -24, y: 51}
+        - {x: -24, y: 47}
+        - {x: -20, y: 42}
+        - {x: -11, y: 32}
+        - {x: -8, y: 32}
+        - {x: 10, y: 36}
+        - {x: 15, y: 40}
+        - {x: 16, y: 43}
+    - name: HEAD_leather_armor_hat_31
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: 48}
+        - {x: 5, y: 55}
+        - {x: -13, y: 55}
+        - {x: -24, y: 51}
+        - {x: -24, y: 47}
+        - {x: -20, y: 42}
+        - {x: -11, y: 32}
+        - {x: -8, y: 32}
+        - {x: 10, y: 36}
+        - {x: 15, y: 40}
+        - {x: 16, y: 43}
+    - name: HEAD_leather_armor_hat_32
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 54}
+        - {x: -13, y: 54}
+        - {x: -24, y: 50}
+        - {x: -24, y: 46}
+        - {x: -12, y: 31}
+        - {x: -3, y: 31}
+        - {x: 11, y: 34}
+        - {x: 15, y: 39}
+        - {x: 16, y: 42}
+        - {x: 16, y: 47}
+    - name: HEAD_leather_armor_hat_33
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: 48}
+        - {x: 5, y: 55}
+        - {x: -13, y: 55}
+        - {x: -24, y: 51}
+        - {x: -24, y: 47}
+        - {x: -20, y: 42}
+        - {x: -11, y: 32}
+        - {x: -8, y: 32}
+        - {x: 10, y: 36}
+        - {x: 15, y: 40}
+        - {x: 16, y: 43}
+    - name: HEAD_leather_armor_hat_34
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: 48}
+        - {x: 5, y: 55}
+        - {x: -13, y: 55}
+        - {x: -24, y: 51}
+        - {x: -24, y: 47}
+        - {x: -20, y: 42}
+        - {x: -11, y: 32}
+        - {x: -8, y: 32}
+        - {x: 10, y: 36}
+        - {x: 15, y: 40}
+        - {x: 16, y: 43}
+    - name: HEAD_leather_armor_hat_35
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: 48}
+        - {x: 5, y: 55}
+        - {x: -13, y: 55}
+        - {x: -24, y: 51}
+        - {x: -24, y: 47}
+        - {x: -20, y: 42}
+        - {x: -11, y: 32}
+        - {x: -8, y: 32}
+        - {x: 10, y: 36}
+        - {x: 15, y: 40}
+        - {x: 16, y: 43}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
