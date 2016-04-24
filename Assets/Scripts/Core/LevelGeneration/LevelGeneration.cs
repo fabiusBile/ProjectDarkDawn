@@ -79,15 +79,23 @@ namespace LevelGeneration
 			//Пока не наберется достаточное число комнат,
 			//проходится по массиву возможных мест для расположения и устанавливает там комнату
 			while (rooms.Count < roomsCount) {
-				int i = (Random.Range (0, possiblePlacesToPlaceRoom.Count - 1));
-				PossiblePlaceForRoom place = possiblePlacesToPlaceRoom [i];
+				int randomRoomNumber = (Random.Range (0, possiblePlacesToPlaceRoom.Count - 1));
+				PossiblePlaceForRoom place = possiblePlacesToPlaceRoom [randomRoomNumber];
 				rooms.Add (new Room (maxRoomSize, minRoomSize, cellSizeX, cellSizeX, place.pos, distortion));
 				int lastRoom = rooms.Count - 1;
 				rooms [lastRoom].connectedRooms.Add (place.origin);
 				rooms [place.origin].connectedRooms.Add (lastRoom);
-				possiblePlacesToPlaceRoom.RemoveAt (i);
 				grid [place.pos.x, place.pos.y] = lastRoom;
 				AddCoordinatesOfFreePlacesToList (place.pos, lastRoom);
+				possiblePlacesToPlaceRoom.RemoveAt (randomRoomNumber);
+				string output2 = "";
+				for (int i = 0; i!=gridDimensionsX;i++){
+					for (int j = 0; j != gridDimensionsY; j++) {
+						output2 += grid [i, j];
+					}
+					output2 += "\n";
+				}
+				Debug.Log (output2);
 			}
 
 
@@ -98,7 +106,7 @@ namespace LevelGeneration
 					for (int _i = 0; _i != cellSizeX; _i++) {
 						for (int _j = 0; _j != cellSizeY; _j++) {
 							int room = grid [i, j];
-							if (room != -1) {
+							if (room >= 0) {
 								map [i * cellSizeX + _i, j * cellSizeY + _j] = rooms [room].GetBlock (_i, _j);
 							} else {
 								map [i * cellSizeX + _i, j * cellSizeY + _j] = 0;
@@ -112,7 +120,17 @@ namespace LevelGeneration
 				foreach (int targetNum in origin.connectedRooms) {
 					ConnectRooms (origin, rooms [targetNum]);
 				}
+
 			}
+			string output = "";
+			for (int i = 0; i!=map.GetLength(0);i++){
+				for (int j = 0; j != map.GetLength (1); j++) {
+					output += map [i, j];
+				}
+				output += "\n";
+			}
+			Debug.Log (output);
+
 			Draw ();
 
 		}
@@ -125,7 +143,7 @@ namespace LevelGeneration
 				for (int j = 0; j != map.GetLength (1); j++) {
 					Transform bl;
 
-					if (map [i, j] != 0) {
+					if (map [i, j] > 0) {
 						if (map [i, j] == 2)
 							bl = block2;
 						else if (map [i, j] == 3)
@@ -148,8 +166,8 @@ namespace LevelGeneration
 			PossiblePlaceForRoom[] possiblePlaces = { 
 				new PossiblePlaceForRoom (place + Point.Up, origin), 
 				new PossiblePlaceForRoom (place + Point.Right, origin),
-				new PossiblePlaceForRoom (place - Point.Up, origin),
-				new PossiblePlaceForRoom (place - Point.Right, origin)
+				new PossiblePlaceForRoom (place + Point.Down, origin),
+				new PossiblePlaceForRoom (place + Point.Left, origin)
 			};
 		
 			//Проходит по всем возможным местам для размещения комнаты
@@ -158,8 +176,11 @@ namespace LevelGeneration
 				Point possiblePlace = possiblePlaces [i].pos;
 				if (possiblePlace.x >= 0 && possiblePlace.x < gridDimensionsX
 				   && possiblePlace.y >= 0 && possiblePlace.y < gridDimensionsY) {
-					if (grid [possiblePlace.x, possiblePlace.y] == -1)
-						possiblePlacesToPlaceRoom.Add (possiblePlaces [i]);
+					if (grid [possiblePlace.x, possiblePlace.y] == -1) {
+						possiblePlacesToPlaceRoom.Add (possiblePlaces[i]);
+						Debug.Log (possiblePlace.x + " " + possiblePlace.y);
+						grid [possiblePlace.x, possiblePlace.y] = -2;
+					}
 				}
 				
 			}
@@ -196,9 +217,6 @@ namespace LevelGeneration
 					}
 				}
 			}
-
-			if (map [targetX + dirX, roomY + (3 * dirY)] == 0)
-				map [targetX + dirX * 2, roomY + (2 * -dirY)] = 3;
 
 			for (int j = roomY - dirY; (j != targetY + dirY * 2); j += dirY) {
 				if (map [targetX, j] != 1) {

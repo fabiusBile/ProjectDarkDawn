@@ -11,13 +11,21 @@ public struct Point
 			return new Point (0, 1);
 		}
 	}
-
+	public static Point Down {
+		get {
+			return new Point (0, -1);
+		}
+	}
 	public static Point Right {
 		get {
 			return new Point (1, 0);
 		}
 	}
-
+	public static Point Left {
+		get {
+			return new Point (-1, 0);
+		}
+	}
 	public Point (int x, int y)
 	{
 		this.x = x;
