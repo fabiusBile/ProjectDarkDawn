@@ -4,17 +4,16 @@ using System.Collections;
 public class Animated : MonoBehaviour {
 	public string spriteSheet;
 	Sprite[] sprites;
-	SpriteRenderer renderer;
+	SpriteRenderer sRenderer;
 	void Awake(){
 		sprites = Resources.LoadAll<Sprite>(spriteSheet);
-		renderer = GetComponent<SpriteRenderer> ();
+		sRenderer = GetComponent<SpriteRenderer> ();
 	}
 	// Update is called once per frame
 	void LateUpdate () {
 		
-		string spriteName =  renderer.sprite.name.Substring(10,renderer.sprite.name.Length-10);
-		Debug.Log (spriteName);
+		string spriteName =  sRenderer.sprite.name.Substring(10,sRenderer.sprite.name.Length-10);
 		Sprite newSprite = sprites [int.Parse (spriteName)];
-		renderer.sprite = newSprite;
+		sRenderer.sprite = newSprite;
 	}
 }
