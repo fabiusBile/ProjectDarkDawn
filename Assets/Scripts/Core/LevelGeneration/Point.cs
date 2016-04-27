@@ -1,5 +1,5 @@
 ﻿using System;
-
+using UnityEngine;
 
 public struct Point
 {
@@ -32,11 +32,21 @@ public struct Point
 		this.y = y;
 	}
 
+	public Point(Vector2 vector){
+		this.x = Mathf.RoundToInt(vector.x);
+		this.y = Mathf.RoundToInt (vector.y);
+	}
 	public static Point operator +(Point p1, Point p2){
 		return new Point (p1.x + p2.x, p2.y + p1.y);
 	}
 	public static Point operator -(Point p1, Point p2){
 		return new Point (p1.x - p2.x, p2.y - p1.y);
+	}
+	public static Boolean operator ==(Point p1, Point p2){
+		return (p1.x == p2.x && p1.y == p2.y);
+	}
+	public static Boolean operator !=(Point p1, Point p2){
+		return (p1.x == p2.x && p1.y == p2.y);
 	}
 }
 

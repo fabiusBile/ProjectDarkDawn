@@ -97,9 +97,9 @@ namespace LevelGeneration
 				for (int j = 0; j != cellSizeY; j++) {
 					if (map [i, j] == 1 && (
 					       map [i + 1, j] == 0 ||
-					       map [i - 1, j] == 0 ||
-					       map [i, j + 1] == 0 ||
-					       map [i, j - 1] == 0))
+					       //map [i - 1, j] == 0 ||
+						map [i, j + 1] == 0 ))
+					       //map [i, j - 1] == 0))
 						map [i, j] = 3;
 				}
 			}

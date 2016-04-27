@@ -6,6 +6,7 @@ namespace LevelGeneration
 {
 	public class LevelGeneration : MonoBehaviour
 	{
+
 		struct PossiblePlaceForRoom
 		{
 			public Point pos;
@@ -53,12 +54,13 @@ namespace LevelGeneration
 		//Количество ответвлений
 		public int distortion = 3;
 		//Массив, представляющий собой уровень
-		int[,] map;
-
+		public int[,] map;
+		public Transform[,] transformMap;
 		void Awake ()
 		{
 			grid = new int[gridDimensionsX, gridDimensionsY];
 			map = new int[(int)cellSizeX * gridDimensionsX + 6, (int)cellSizeY * gridDimensionsY + 6];
+			transformMap = new Transform[(int)cellSizeX * gridDimensionsX + 6, (int)cellSizeY * gridDimensionsY + 6];
 
 			//Генерация таблицы и заполнение ее пустыми клетками
 			for (int i = 0; i != gridDimensionsX; i++) {
@@ -150,7 +152,8 @@ namespace LevelGeneration
 							bl = wall;
 						else
 							bl = block;
-						Transform.Instantiate (bl, new Vector3 (-i * tileSize.x / 2 + xOffset + 3, j * tileSize.y / 4 + yOffset + 3, 0), bl.rotation);
+						transformMap[i,j] = Transform.Instantiate (bl, new Vector3 (-i * tileSize.x / 2 + xOffset + 3, j * tileSize.y / 4 + yOffset + 3, 0), bl.rotation) as Transform;
+						transformMap [i, j].GetComponent<Tile> ().pos = new Point (i, j);
 					}
 					xOffset += (tileSize.x / 2);
 				}
@@ -178,7 +181,6 @@ namespace LevelGeneration
 				   && possiblePlace.y >= 0 && possiblePlace.y < gridDimensionsY) {
 					if (grid [possiblePlace.x, possiblePlace.y] == -1) {
 						possiblePlacesToPlaceRoom.Add (possiblePlaces[i]);
-						Debug.Log (possiblePlace.x + " " + possiblePlace.y);
 						grid [possiblePlace.x, possiblePlace.y] = -2;
 					}
 				}
@@ -212,9 +214,9 @@ namespace LevelGeneration
 					if (map [n, roomY - 1] != 1) {
 						map [n, roomY - 1] = 2;
 					}
-					if (map [n, roomY - 2] == 0) {
-						map [n, roomY - 2] = 3;
-					}
+//					if (map [n, roomY - 2] == 0) {
+//						map [n, roomY - 2] = 3;
+//					}
 				}
 			}
 
@@ -231,9 +233,9 @@ namespace LevelGeneration
 					if (map [targetX - 1, j] != 1) {
 						map [targetX - 1, j] = 2;
 					}
-					if (map [targetX - 2, j] == 0) {
-						map [targetX - 2, j] = 3;
-					}
+//					if (map [targetX - 2, j] == 0) {
+//						map [targetX - 2, j] = 3;
+//					}
 
 				}
 			}
