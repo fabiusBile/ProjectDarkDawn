@@ -20,8 +20,15 @@ namespace LevelGeneration
 		}
 
 		public Transform block;
-		public Transform block2;
-		public Transform wall;
+		public Wall wall;
+//		public Transform block2;
+//		public Transform wallBottom;
+//		public Transform wallMiddle;
+//		public Transform wallTop;
+//		public Transform wallLeft;
+//		public Transform wallRight;
+
+
 
 		//Размер тайла
 		public Vector2 tileSize;
@@ -54,12 +61,21 @@ namespace LevelGeneration
 		//Количество ответвлений
 		public int distortion = 3;
 		//Массив, представляющий собой уровень
-		public int[,] map;
+		public TileTypes[,] map;
 		public Transform[,] transformMap;
+
+		private bool checkCell(int x, int y, TileTypes type){
+			try { 
+				return (map[x,y]==type);
+			} catch (System.IndexOutOfRangeException ex){
+				return type == TileTypes.empty;
+			}
+		}
+
 		void Awake ()
 		{
 			grid = new int[gridDimensionsX, gridDimensionsY];
-			map = new int[(int)cellSizeX * gridDimensionsX + 6, (int)cellSizeY * gridDimensionsY + 6];
+			map = new TileTypes[(int)cellSizeX * gridDimensionsX + 6, (int)cellSizeY * gridDimensionsY + 6];
 			transformMap = new Transform[(int)cellSizeX * gridDimensionsX + 6, (int)cellSizeY * gridDimensionsY + 6];
 
 			//Генерация таблицы и заполнение ее пустыми клетками
@@ -93,7 +109,7 @@ namespace LevelGeneration
 				string output2 = "";
 				for (int i = 0; i!=gridDimensionsX;i++){
 					for (int j = 0; j != gridDimensionsY; j++) {
-						output2 += grid [i, j];
+						output2 += (int)grid [i, j];
 					}
 					output2 += "\n";
 				}
@@ -111,7 +127,7 @@ namespace LevelGeneration
 							if (room >= 0) {
 								map [i * cellSizeX + _i, j * cellSizeY + _j] = rooms [room].GetBlock (_i, _j);
 							} else {
-								map [i * cellSizeX + _i, j * cellSizeY + _j] = 0;
+								map [i * cellSizeX + _i, j * cellSizeY + _j] = TileTypes.empty;
 							}
 						}
 					}
@@ -127,7 +143,7 @@ namespace LevelGeneration
 			string output = "";
 			for (int i = 0; i!=map.GetLength(0);i++){
 				for (int j = 0; j != map.GetLength (1); j++) {
-					output += map [i, j];
+					output += (int) map [i, j];
 				}
 				output += "\n";
 			}
@@ -139,25 +155,79 @@ namespace LevelGeneration
 		//Строит уровень из массива
 		void Draw ()
 		{
-			float yOffset = 0;
 			for (int i = 0; i != map.GetLength (0); i++) {
-				float xOffset = 0;
 				for (int j = 0; j != map.GetLength (1); j++) {
-					Transform bl;
-
-					if (map [i, j] > 0) {
-						if (map [i, j] == 2)
-							bl = block2;
-						else if (map [i, j] == 3)
-							bl = wall;
+					Transform bl = block;
+					if (map [i, j] != TileTypes.empty) {
+						if (map [i, j] == TileTypes.wall) {
+							if (checkCell(i-1,j,TileTypes.empty)){
+								bl = wall.right;
+							}
+							if (checkCell(i+1,j,TileTypes.empty)){
+								bl = wall.left;
+							}
+							if (checkCell (i, j - 1,TileTypes.empty)) {
+								bl = wall.bottom;
+							} 
+							if (checkCell (i, j + 1,TileTypes.empty)) {
+								bl = wall.top;
+							} 
+							if (checkCell (i, j - 1,TileTypes.wall)&&
+								checkCell (i+1, j,TileTypes.wall)) {
+								bl = wall.bottomInnerRight;
+							}
+							if (checkCell (i, j - 1,TileTypes.wall)&&
+								checkCell (i-1, j,TileTypes.wall)) {
+								bl = wall.bottomInnerLeft;
+							}
+							if (checkCell (i, j + 1,TileTypes.wall)&&
+								checkCell (i+1, j,TileTypes.wall)) {
+								bl = wall.upperInnerLeft;
+							}
+							if (checkCell (i, j + 1,TileTypes.wall)&&
+								checkCell (i-1, j,TileTypes.wall)) {
+								bl = wall.upperInnerRight;
+							}
+							if (checkCell (i, j - 1,TileTypes.wall)&&
+								checkCell (i+1, j,TileTypes.wall) &&
+								checkCell (i, j + 1,TileTypes.empty)&&
+								checkCell (i-1, j,TileTypes.empty)) {
+								bl = wall.upperOuterRight;
+							}
+							if (checkCell (i, j - 1,TileTypes.wall)&&
+								checkCell (i-1, j,TileTypes.wall) &&
+								checkCell (i, j + 1,TileTypes.empty)&&
+								checkCell (i+1, j,TileTypes.empty)) {
+								bl = wall.upperOuterLeft;
+							}
+							if (checkCell (i, j + 1,TileTypes.wall)&&
+								checkCell (i+1, j,TileTypes.wall) &&
+								checkCell (i, j - 1,TileTypes.empty)&&
+								checkCell (i-1, j,TileTypes.empty)) {
+								bl = wall.bottomOuterRight;
+							}
+							if (checkCell (i, j + 1,TileTypes.wall)&&
+								checkCell (i-1, j,TileTypes.wall) &&
+								checkCell (i, j - 1,TileTypes.empty)&&
+								checkCell (i+1, j,TileTypes.empty)) {
+								bl = wall.bottomOuterLeft;
+							}
+						}
+						else if (map [i, j] == TileTypes.wallBottom) {
+							bl = wall.topBottom;
+						}
+						else if (map [i, j] == TileTypes.wallMiddle) {
+							bl = wall.topMiddle;
+						}
 						else
 							bl = block;
-						transformMap[i,j] = Transform.Instantiate (bl, new Vector3 (-i * tileSize.x / 2 + xOffset + 3, j * tileSize.y / 4 + yOffset + 3, 0), bl.rotation) as Transform;
+						//transformMap[i,j] = Transform.Instantiate (bl, new Vector3 (-i * tileSize.x / 2 + xOffset + 3, j * tileSize.y / 4 + yOffset + 3, 0), bl.rotation) as Transform;
+						transformMap[i,j] = Transform.Instantiate (bl, new Vector3 (-i * tileSize.x, j * tileSize.y, 0), bl.rotation) as Transform;
 						transformMap [i, j].GetComponent<Tile> ().pos = new Point (i, j);
 					}
-					xOffset += (tileSize.x / 2);
+					//xOffset += (tileSize.x / 2);
 				}
-				yOffset += (tileSize.y / 4);
+				//yOffset += (tileSize.y / 4);
 			}
 		}
 
@@ -203,39 +273,45 @@ namespace LevelGeneration
 
 			//Строим коридор
 			for (int n = roomX - dirX; (n != (targetX + dirX * 2)); n += dirX) {
-				if (n < map.GetLength (0) && map [n, roomY] != 1) {
-					map [n, roomY] = 2;
-					if (map [n, roomY + 1] != 1) {
-						map [n, roomY + 1] = 2;
+				if (n < map.GetLength (0) && map [n, roomY] != TileTypes.ground) {
+					map [n, roomY] = TileTypes.ground;
+					if (map [n, roomY + 1] != TileTypes.ground) {
+						map [n, roomY + 1] = TileTypes.ground;
 					}
-					if (map [n, roomY + 2] == 0) {
-						map [n, roomY + 2] = 3;
+					if (map [n, roomY + 2] == TileTypes.empty) {
+						map [n, roomY + 2] = TileTypes.wallBottom;
 					}
-					if (map [n, roomY - 1] != 1) {
-						map [n, roomY - 1] = 2;
+					if (map [n, roomY + 3] == TileTypes.empty) {
+						map [n, roomY + 3] = TileTypes.wallMiddle;
 					}
-//					if (map [n, roomY - 2] == 0) {
-//						map [n, roomY - 2] = 3;
-//					}
+					if (map [n, roomY + 4] == TileTypes.empty) {
+						map [n, roomY + 4] = TileTypes.wall;
+					}
+					if (map [n, roomY - 1] != TileTypes.ground) {
+						map [n, roomY - 1] = TileTypes.ground;
+					}
+					if (map [n, roomY - 2] == TileTypes.empty) {
+						map [n, roomY - 2] = TileTypes.wall;
+					}
 				}
 			}
-
+//
 			for (int j = roomY - dirY; (j != targetY + dirY * 2); j += dirY) {
-				if (map [targetX, j] != 1) {
-					map [targetX, j] = 2;
+				if (map [targetX, j] != TileTypes.ground) {
+					map [targetX, j] = TileTypes.ground;
 
-					if (map [targetX + 1, j] != 1) {
-						map [targetX + 1, j] = 2;
+					if (map [targetX + 1, j] != TileTypes.ground) {
+						map [targetX + 1, j] = TileTypes.ground;
 					}
-					if (map [targetX + 2, j] == 0) {
-						map [targetX + 2, j] = 3;
+					if (map [targetX + 2, j] == TileTypes.empty) {
+						map [targetX + 2, j] = TileTypes.wall;
 					}
-					if (map [targetX - 1, j] != 1) {
-						map [targetX - 1, j] = 2;
+					if (map [targetX - 1, j] != TileTypes.ground) {
+						map [targetX - 1, j] = TileTypes.ground;
 					}
-//					if (map [targetX - 2, j] == 0) {
-//						map [targetX - 2, j] = 3;
-//					}
+					if (map [targetX - 2, j] == TileTypes.empty) {
+						map [targetX - 2, j] = TileTypes.wall;
+					}
 
 				}
 			}

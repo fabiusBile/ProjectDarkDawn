@@ -29,14 +29,14 @@ public class ClickToMove : MonoBehaviour {
 			Collider2D[] startCol = Physics2D.OverlapPointAll(start);
 
 
-			if(col.Length > 0){
-				Transform[,] tm = GameObject.Find ("Level").GetComponent<LevelGeneration.LevelGeneration> ().transformMap;
-				List<Point> path = AStarPathfinder.FindPath(GameObject.Find("Level").GetComponent<LevelGeneration.LevelGeneration>().map,curPos.pos, col[0].GetComponent<Tile>().pos);
-				foreach (Point p in path) {
-					tm [p.x, p.y].GetComponent<SpriteRenderer> ().color = Color.red;
-				}
-				mov.Move (col [0].transform.position); //Если под место клика был тайл - двигаемся в эту точку 
-			}
+//			if(col.Length > 0){
+//				Transform[,] tm = GameObject.Find ("Level").GetComponent<LevelGeneration.LevelGeneration> ().transformMap;
+//				List<Point> path = AStarPathfinder.FindPath(GameObject.Find("Level").GetComponent<LevelGeneration.LevelGeneration>().map,curPos.pos, col[0].GetComponent<Tile>().pos);
+//				foreach (Point p in path) {
+//					tm [p.x, p.y].GetComponent<SpriteRenderer> ().color = Color.red;
+//				}
+//				mov.Move (col [0].transform.position); //Если под место клика был тайл - двигаемся в эту точку 
+//			}
 		}
 	}
 }
