@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.UltimateIsometricToolkit.Scripts.Core;
 
 namespace LevelGeneration
 {
@@ -21,12 +22,6 @@ namespace LevelGeneration
 
 		public Transform block;
 		public Wall wall;
-//		public Transform block2;
-//		public Transform wallBottom;
-//		public Transform wallMiddle;
-//		public Transform wallTop;
-//		public Transform wallLeft;
-//		public Transform wallRight;
 
 
 
@@ -62,12 +57,13 @@ namespace LevelGeneration
 		public int distortion = 3;
 		//Массив, представляющий собой уровень
 		public TileTypes[,] map;
-		public Transform[,] transformMap;
+		public IsoTransform[,] transformMap;
 
-		private bool checkCell(int x, int y, TileTypes type){
+		private bool checkCell (int x, int y, TileTypes type)
+		{
 			try { 
-				return (map[x,y]==type);
-			} catch (System.IndexOutOfRangeException ex){
+				return (map [x, y] == type);
+			} catch (System.IndexOutOfRangeException) {
 				return type == TileTypes.empty;
 			}
 		}
@@ -76,7 +72,7 @@ namespace LevelGeneration
 		{
 			grid = new int[gridDimensionsX, gridDimensionsY];
 			map = new TileTypes[(int)cellSizeX * gridDimensionsX + 6, (int)cellSizeY * gridDimensionsY + 6];
-			transformMap = new Transform[(int)cellSizeX * gridDimensionsX + 6, (int)cellSizeY * gridDimensionsY + 6];
+			transformMap = new IsoTransform[(int)cellSizeX * gridDimensionsX + 6, (int)cellSizeY * gridDimensionsY + 6];
 
 			//Генерация таблицы и заполнение ее пустыми клетками
 			for (int i = 0; i != gridDimensionsX; i++) {
@@ -107,7 +103,7 @@ namespace LevelGeneration
 				AddCoordinatesOfFreePlacesToList (place.pos, lastRoom);
 				possiblePlacesToPlaceRoom.RemoveAt (randomRoomNumber);
 				string output2 = "";
-				for (int i = 0; i!=gridDimensionsX;i++){
+				for (int i = 0; i != gridDimensionsX; i++) {
 					for (int j = 0; j != gridDimensionsY; j++) {
 						output2 += (int)grid [i, j];
 					}
@@ -141,9 +137,9 @@ namespace LevelGeneration
 
 			}
 			string output = "";
-			for (int i = 0; i!=map.GetLength(0);i++){
+			for (int i = 0; i != map.GetLength (0); i++) {
 				for (int j = 0; j != map.GetLength (1); j++) {
-					output += (int) map [i, j];
+					output += (int)map [i, j];
 				}
 				output += "\n";
 			}
@@ -160,77 +156,79 @@ namespace LevelGeneration
 					Transform bl = block;
 					if (map [i, j] != TileTypes.empty) {
 						if (map [i, j] == TileTypes.wall) {
-							if (checkCell(i-1,j,TileTypes.empty)){
-								bl = wall.right;
+							int mask = 0;
+							bool isTop = false;
+							if (i > 0) {
+								if (map [i - 1, j] == TileTypes.wall) {
+									mask += 2;
+								}
 							}
-							if (checkCell(i+1,j,TileTypes.empty)){
-								bl = wall.left;
+							if (i < map.GetLength (0)) {
+								if (map [i + 1, j] == TileTypes.wall) {
+									mask += 4;
+								} else if (map [i + 1, j] == TileTypes.empty) {
+									isTop = true;
+								}
 							}
-							if (checkCell (i, j - 1,TileTypes.empty)) {
-								bl = wall.bottom;
-							} 
-							if (checkCell (i, j + 1,TileTypes.empty)) {
-								bl = wall.top;
-							} 
-							if (checkCell (i, j - 1,TileTypes.wall)&&
-								checkCell (i+1, j,TileTypes.wall)) {
-								bl = wall.bottomInnerRight;
+							if (j > 0) {
+								if (map [i, j - 1] == TileTypes.wall) {
+									mask += 1;
+								} 
 							}
-							if (checkCell (i, j - 1,TileTypes.wall)&&
-								checkCell (i-1, j,TileTypes.wall)) {
-								bl = wall.bottomInnerLeft;
+							if (j < map.GetLength (1)) {
+								if (map [i, j + 1] == TileTypes.wall) {
+									mask += 8;
+								} else if (map [i, j + 1] == TileTypes.empty) {
+									isTop = true;
+								}
 							}
-							if (checkCell (i, j + 1,TileTypes.wall)&&
-								checkCell (i+1, j,TileTypes.wall)) {
-								bl = wall.upperInnerLeft;
+							if (isTop) {
+								mask += 16;
 							}
-							if (checkCell (i, j + 1,TileTypes.wall)&&
-								checkCell (i-1, j,TileTypes.wall)) {
-								bl = wall.upperInnerRight;
+							if (isTop) {
+								switch (mask) {
+								case 17: 
+									mask = 16;
+									break;
+								case 19:
+									mask = 17;
+									break;
+								case 21:
+									mask = 18;
+									break;
+								case 22:
+									mask = 19;
+									break;
+								case 25:
+									mask = 20;
+									break;
+								case 26:
+									mask = 21;
+									break;
+								default:
+									break;
+								}
 							}
-							if (checkCell (i, j - 1,TileTypes.wall)&&
-								checkCell (i+1, j,TileTypes.wall) &&
-								checkCell (i, j + 1,TileTypes.empty)&&
-								checkCell (i-1, j,TileTypes.empty)) {
-								bl = wall.upperOuterRight;
+							try {
+								transformMap [i, j] = Transform.Instantiate (wall.pieces[mask]).GetComponent<IsoTransform> ();
+							} catch (System.Exception e){
+								transformMap [i,j] = Transform.Instantiate (wall.pieces[0]).GetComponent<IsoTransform> ();
+								transformMap[i,j].GetComponentInChildren<TextMesh>().text = mask.ToString();
 							}
-							if (checkCell (i, j - 1,TileTypes.wall)&&
-								checkCell (i-1, j,TileTypes.wall) &&
-								checkCell (i, j + 1,TileTypes.empty)&&
-								checkCell (i+1, j,TileTypes.empty)) {
-								bl = wall.upperOuterLeft;
-							}
-							if (checkCell (i, j + 1,TileTypes.wall)&&
-								checkCell (i+1, j,TileTypes.wall) &&
-								checkCell (i, j - 1,TileTypes.empty)&&
-								checkCell (i-1, j,TileTypes.empty)) {
-								bl = wall.bottomOuterRight;
-							}
-							if (checkCell (i, j + 1,TileTypes.wall)&&
-								checkCell (i-1, j,TileTypes.wall) &&
-								checkCell (i, j - 1,TileTypes.empty)&&
-								checkCell (i+1, j,TileTypes.empty)) {
-								bl = wall.bottomOuterLeft;
-							}
-						}
-						else if (map [i, j] == TileTypes.wallBottom) {
-							bl = wall.topBottom;
-						}
-						else if (map [i, j] == TileTypes.wallMiddle) {
-							bl = wall.topMiddle;
-						}
-						else
+
+						} else {
 							bl = block;
-						//transformMap[i,j] = Transform.Instantiate (bl, new Vector3 (-i * tileSize.x / 2 + xOffset + 3, j * tileSize.y / 4 + yOffset + 3, 0), bl.rotation) as Transform;
-						transformMap[i,j] = Transform.Instantiate (bl, new Vector3 (-i * tileSize.x, j * tileSize.y, 0), bl.rotation) as Transform;
-						transformMap [i, j].GetComponent<Tile> ().pos = new Point (i, j);
+							transformMap [i, j] = Transform.Instantiate (bl).GetComponent<IsoTransform> ();
+						}
+						transformMap [i, j].Position = new Vector3 (i, 0, j);
 					}
 					//xOffset += (tileSize.x / 2);
 				}
 				//yOffset += (tileSize.y / 4);
 			}
-		}
+			Debug.Log (transformMap);
 
+		}
 		//Добавляет в массив возможных мест для размещения комнаты пустые соседи указанной клетки таблицы
 		void AddCoordinatesOfFreePlacesToList (Point place, int origin)
 		{
@@ -248,9 +246,9 @@ namespace LevelGeneration
 			for (int i = 0; i != 4; i++) {
 				Point possiblePlace = possiblePlaces [i].pos;
 				if (possiblePlace.x >= 0 && possiblePlace.x < gridDimensionsX
-				   && possiblePlace.y >= 0 && possiblePlace.y < gridDimensionsY) {
+				    && possiblePlace.y >= 0 && possiblePlace.y < gridDimensionsY) {
 					if (grid [possiblePlace.x, possiblePlace.y] == -1) {
-						possiblePlacesToPlaceRoom.Add (possiblePlaces[i]);
+						possiblePlacesToPlaceRoom.Add (possiblePlaces [i]);
 						grid [possiblePlace.x, possiblePlace.y] = -2;
 					}
 				}
@@ -279,13 +277,7 @@ namespace LevelGeneration
 						map [n, roomY + 1] = TileTypes.ground;
 					}
 					if (map [n, roomY + 2] == TileTypes.empty) {
-						map [n, roomY + 2] = TileTypes.wallBottom;
-					}
-					if (map [n, roomY + 3] == TileTypes.empty) {
-						map [n, roomY + 3] = TileTypes.wallMiddle;
-					}
-					if (map [n, roomY + 4] == TileTypes.empty) {
-						map [n, roomY + 4] = TileTypes.wall;
+						map [n, roomY + 2] = TileTypes.wall;
 					}
 					if (map [n, roomY - 1] != TileTypes.ground) {
 						map [n, roomY - 1] = TileTypes.ground;
@@ -295,7 +287,7 @@ namespace LevelGeneration
 					}
 				}
 			}
-//
+
 			for (int j = roomY - dirY; (j != targetY + dirY * 2); j += dirY) {
 				if (map [targetX, j] != TileTypes.ground) {
 					map [targetX, j] = TileTypes.ground;

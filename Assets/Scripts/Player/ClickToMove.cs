@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.UltimateIsometricToolkit.Scripts.Core;
 public class ClickToMove : MonoBehaviour {
 	Moveable mov;
 	public Tile curPos;
@@ -27,8 +28,11 @@ public class ClickToMove : MonoBehaviour {
 			Vector2 start = Camera.main.ScreenToWorldPoint(transform.position); 
 			Collider2D[] col = Physics2D.OverlapPointAll(v); //Определеяем место клика
 			Collider2D[] startCol = Physics2D.OverlapPointAll(start);
-
-
+			if (col.Length > 0) {
+				if (col [0].GetComponent<IsoTransform> ()) {
+					mov.Move (col [0].GetComponent<IsoTransform> ().Position);
+				}
+			}
 //			if(col.Length > 0){
 //				Transform[,] tm = GameObject.Find ("Level").GetComponent<LevelGeneration.LevelGeneration> ().transformMap;
 //				List<Point> path = AStarPathfinder.FindPath(GameObject.Find("Level").GetComponent<LevelGeneration.LevelGeneration>().map,curPos.pos, col[0].GetComponent<Tile>().pos);

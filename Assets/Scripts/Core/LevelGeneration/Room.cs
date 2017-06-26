@@ -119,18 +119,18 @@ namespace LevelGeneration
 					}
 				}
 			}
-			for (int i = 0; i != cellSizeX; i++) {
-				for (int j = 0; j != cellSizeY; j++) {
-					if (map [i, j] == TileTypes.wall &&
-					    (checkCell (i, j + 1) || checkCell (i, j + 1, TileTypes.wall)) &&
-					    (checkCell (i, j - 1, TileTypes.ground)) &&
-					    (checkCell (i, j - 2, TileTypes.ground))) {
-						map [i, j] = TileTypes.wall;
-						map [i, j - 1] = TileTypes.wallMiddle;
-						map [i, j - 2] = TileTypes.wallBottom;
-					}
-				}
-			}
+//			for (int i = 0; i != cellSizeX; i++) {
+//				for (int j = 0; j != cellSizeY; j++) {
+//					if (map [i, j] == TileTypes.wall &&
+//					    (checkCell (i, j + 1) || checkCell (i, j + 1, TileTypes.wall)) &&
+//					    (checkCell (i, j - 1, TileTypes.ground)) &&
+//					    (checkCell (i, j - 2, TileTypes.ground))) {
+//						map [i, j] = TileTypes.wall;
+//						map [i, j - 1] = TileTypes.wallMiddle;
+//						map [i, j - 2] = TileTypes.wallBottom;
+//					}
+//				}
+//			}
 		}
 	}
 }
