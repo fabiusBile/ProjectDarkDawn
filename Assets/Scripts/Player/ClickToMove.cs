@@ -9,16 +9,19 @@ public class ClickToMove : MonoBehaviour {
 		mov = gameObject.GetComponent<Moveable>();
 
 	}
-	void OnTriggerEnter(Collider other) {
+	void OnTriggerEnter2D(Collider2D other) {
+		Debug.Log (other.name);
+		if (other.GetComponent<Tile> ()) {
+			curPos = other.GetComponent<Tile> ();
+		}
+	}
+	void OnColliderEnter2D(Collider2D other) {
+		Debug.Log (other.name);
 		if (other.GetComponent<Tile> ()) {
 			curPos = other.GetComponent<Tile> ();
 		}
 	}
 	void Update () {
-
-
-
-		//При нажатии ПКМ
 		if (Input.GetButtonDown ("Fire2")) 
 		{
 			Vector3 mousePosition = Input.mousePosition; 
@@ -31,6 +34,7 @@ public class ClickToMove : MonoBehaviour {
 			if (col.Length > 0) {
 				if (col [0].GetComponent<IsoTransform> ()) {
 					mov.Move (col [0].GetComponent<IsoTransform> ().Position);
+					col [0].GetComponent<SpriteRenderer> ().color = Color.red;
 				}
 			}
 //			if(col.Length > 0){

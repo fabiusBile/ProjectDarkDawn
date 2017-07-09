@@ -22,8 +22,8 @@ namespace LevelGeneration
 
 		public Transform block;
 		public Wall wall;
-
-
+		public IsoTransform player;
+		private Point playerPos;
 
 		//Размер тайла
 		public Vector2 tileSize;
@@ -112,6 +112,12 @@ namespace LevelGeneration
 				Debug.Log (output2);
 			}
 
+			//Определение комнаты для игрока
+			int playerRoomNumber = Random.Range(0,rooms.Count);
+			playerPos = new Point ();
+
+			playerPos.x = rooms [playerRoomNumber].PosX * cellSizeX + cellSizeX / 2;
+			playerPos.y = rooms [playerRoomNumber].PosY * cellSizeX + cellSizeY / 2;
 
 
 			//Построение массива уровня
@@ -122,6 +128,7 @@ namespace LevelGeneration
 							int room = grid [i, j];
 							if (room >= 0) {
 								map [i * cellSizeX + _i, j * cellSizeY + _j] = rooms [room].GetBlock (_i, _j);
+
 							} else {
 								map [i * cellSizeX + _i, j * cellSizeY + _j] = TileTypes.empty;
 							}
@@ -221,6 +228,9 @@ namespace LevelGeneration
 							transformMap [i, j] = Transform.Instantiate (bl).GetComponent<IsoTransform> ();
 						}
 						transformMap [i, j].Position = new Vector3 (i, 0, j);
+						if (i == playerPos.x && j == playerPos.y) {
+							player.Position = new Vector3 (playerPos.x, player.Position.y, playerPos.y);					
+						}
 					}
 					//xOffset += (tileSize.x / 2);
 				}
