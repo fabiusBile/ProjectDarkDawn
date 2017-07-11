@@ -15,7 +15,7 @@ public class Moveable : MonoBehaviour {
 
 	public void Move(Vector3 target){
 		this.target = target;
-		Vector3 direction = Vector3.ClampMagnitude (new Vector3 (target.x - isoTransform.Position.x, 0, target.z - isoTransform.Position.z),1f);
+		Vector3 direction = Vector3.ClampMagnitude (new Vector3 (target.x - isoTransform.Position.x, target.y - isoTransform.Position.y, target.z - isoTransform.Position.z),1f);
 		Debug.Log (direction);
 
 		foreach (Animator animator in animators) {
@@ -40,7 +40,7 @@ public class Moveable : MonoBehaviour {
 	}
 	public void Update(){
 		if (move) {
-			Vector3 direction = Vector3.ClampMagnitude (new Vector3 (target.x - isoTransform.Position.x,0,target.z - isoTransform.Position.z),1f);
+			Vector3 direction = Vector3.ClampMagnitude (new Vector3 (target.x - isoTransform.Position.x, target.y - isoTransform.Position.y,target.z - isoTransform.Position.z),1f);
 			isoTransform.Translate (direction * speed * Time.deltaTime);
 			if (Vector3.Distance (isoTransform.Position, target) < 0.1) {
 				move = false;

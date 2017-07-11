@@ -122,11 +122,11 @@ namespace Assets.UltimateIsometricToolkit.Scripts.Utils {
 		/// <returns></returns>
 		public static Ray ScreenSpaceToIsoRay(Vector2 screenSpacePoint) {
 			var ray = Camera.main.ScreenPointToRay(screenSpacePoint);
-			
+
 			//rotate the origin and direction to the isometric coordinate system 
 			var isoRayOrigin = ScreenToIso(ray.origin);
 			var isoRayDirection = ScreenToIso(ray.direction);
-			
+
 			return new Ray(isoRayOrigin,isoRayDirection);
 		}
 

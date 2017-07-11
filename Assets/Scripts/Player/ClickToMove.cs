@@ -2,9 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using Assets.UltimateIsometricToolkit.Scripts.Core;
+using Assets.UltimateIsometricToolkit.Scripts.Utils;
 public class ClickToMove : MonoBehaviour {
 	Moveable mov;
 	public Tile curPos;
+	public IsoTransform testPref;
+
 	void Start(){
 		mov = gameObject.GetComponent<Moveable>();
 
@@ -34,6 +37,13 @@ public class ClickToMove : MonoBehaviour {
 			if (col.Length > 0) {
 				if (col [0].GetComponent<IsoTransform> ()) {
 					mov.Move (col [0].GetComponent<IsoTransform> ().Position);
+
+					//mov.Move(Isometric.ScreenToIso(v));
+					Vector3 isoPos = Isometric.ScreenToIso(v);
+					//testPref.Position = new Vector3 (isoPos.x, testPref.Position.y, isoPos.z);
+					//testPref.Position = isoPos;
+					//mov.Move (isoPos);
+
 					col [0].GetComponent<SpriteRenderer> ().color = Color.red;
 				}
 			}
