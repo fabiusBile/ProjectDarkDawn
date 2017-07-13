@@ -7,10 +7,12 @@ public class Animated : MonoBehaviour {
 	SpriteRenderer sRenderer;
 	public bool isWeapon;
 	public bool isClothe;
+	PlayerController player;
 
 	void Awake(){
 		sprites = Resources.LoadAll<Sprite>(spriteSheet);
 		sRenderer = GetComponent<SpriteRenderer> ();
+		player = transform.parent.parent.GetComponent<PlayerController> ();
 	}
 	// Update is called once per frame
 	void LateUpdate () {
@@ -29,5 +31,8 @@ public class Animated : MonoBehaviour {
 
 		Sprite newSprite = sprites [int.Parse (spriteName)];
 		sRenderer.sprite = newSprite;
+	}
+	public void StopAttack(){
+		player.StopAttack ();
 	}
 }

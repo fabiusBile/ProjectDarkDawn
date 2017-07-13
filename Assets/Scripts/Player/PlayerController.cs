@@ -22,6 +22,9 @@ public class PlayerController : MonoBehaviour {
 			} else {
 				animator.SetFloat ("Speed", 0);
 			}
+			if (Input.GetAxis("Fire1") != 0){
+				animator.SetBool("Attack",true);
+			}
 		}
 	}
 	// Update is called once per frame
@@ -56,6 +59,11 @@ public class PlayerController : MonoBehaviour {
 				animator.SetFloat ("Direction", 3);
 			}
 
+		}
+	}
+	public void StopAttack(){
+		foreach (Animator animator in animators) {
+			animator.SetBool ("Attack", false);
 		}
 	}
 }
