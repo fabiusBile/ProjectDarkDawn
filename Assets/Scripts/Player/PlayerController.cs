@@ -10,9 +10,11 @@ public class PlayerController : MonoBehaviour {
 	public Animator[] animators;
 	private IsoTransform isoTransform;
 	public IsoTransform crosshair;
+	private Rigidbody rb;
 	void Awake() {
 		isoTransform = this.GetOrAddComponent<IsoTransform>(); //avoids polling the IsoTransform component per frame
 		animators = this.transform.GetChild (0).GetComponentsInChildren<Animator> ();
+		rb = GetComponent<Rigidbody> ();
 	}
 
 	void Update(){
@@ -27,6 +29,14 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 	}
+	void OnCollisionEnter(Collision collision)
+	{
+		Debug.Log (collision.gameObject.name);
+	}
+	void OnTriggerEnter(Collision collision)
+	{
+		Debug.Log (collision.gameObject.name);
+	}
 	// Update is called once per frame
 	void FixedUpdate () {
 		Vector3 moveDirection = new Vector3 (Input.GetAxis("Horizontal")+Input.GetAxis("Vertical"), 0, -Input.GetAxis("Horizontal")+Input.GetAxis("Vertical"));
@@ -38,12 +48,16 @@ public class PlayerController : MonoBehaviour {
 		if (Physics.Raycast (ray, out hit)) {
 			crosshair.Position = Isometric.ScreenToIso(hit.point);
 		}
-
+		crosshair.Position.Set (crosshair.Position.x, isoTransform.Position.y, crosshair.Position.z);
 		Vector3 lookDirection = crosshair.Position - isoTransform.Position;
 		lookDirection.Normalize ();
+		moveDirection = Isometric.IsoToScreen (moveDirection);
+		rb.velocity = moveDirection * Speed;
+		//rb.AddForce (moveDirection * Speed);
+		//rb.MovePosition (transform.position + moveDirection * Time.deltaTime * Speed);
+		isoTransform.Position = Isometric.ScreenToIso (transform.position);
 
-		//rb.MovePosition (isoTransform.Position+direction * Time.deltaTime * Speed);
-		isoTransform.Translate(moveDirection * Time.deltaTime * Speed);
+		//isoTransform.Translate(moveDirection * Time.deltaTime * Speed);
 	//	rb.velocity = Isometric.IsoToScreen(direction*Speed);
 		foreach (Animator animator in animators) {
 			if (Mathf.Round(lookDirection.x*10f)/10f>=0.5 && lookDirection.z >=0.5) {
