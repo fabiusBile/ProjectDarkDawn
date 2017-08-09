@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace LevelGeneration{
+namespace Level{
 	public class Wall : MonoBehaviour {
 	
 		public Transform[] pieces;

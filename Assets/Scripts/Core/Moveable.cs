@@ -1,16 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Assets.UltimateIsometricToolkit.Scripts.Core;
+using Assets.UltimateIsometricToolkit.Scripts.Utils;
+
 public class Moveable : MonoBehaviour {
-	public float speed = 1f;
+	public float Speed = 1f;
 	Vector3 target;
 	bool move;
 	Animator[] animators;
 	IsoTransform isoTransform;
+	Rigidbody rb;
 
 	public void Start(){
 		animators = transform.GetChild (0).GetComponentsInChildren<Animator> ();
 		isoTransform = GetComponent<IsoTransform> ();
+		rb = GetComponent<Rigidbody> ();
 	}
 
 	public void Move(Vector3 target){
@@ -38,10 +42,15 @@ public class Moveable : MonoBehaviour {
 		move = true;
 
 	}
-	public void Update(){
+	public void FixedUpdate(){
 		if (move) {
-			Vector3 direction = Vector3.ClampMagnitude (new Vector3 (target.x - isoTransform.Position.x, target.y - isoTransform.Position.y,target.z - isoTransform.Position.z),1f);
-			isoTransform.Translate (direction * speed * Time.deltaTime);
+			Vector3 direction = target - isoTransform.Position;
+			//isoTransform.Translate (direction * speed * Time.deltaTime);
+			direction.Normalize();
+			direction = Isometric.IsoToScreen(direction);
+			rb.velocity = direction * Speed;
+			isoTransform.Position = Isometric.ScreenToIso (transform.position);
+
 			if (Vector3.Distance (isoTransform.Position, target) < 0.1) {
 				move = false;
 				foreach (Animator animator in animators) {

@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-namespace LevelGeneration
+namespace Level
 {
 	public class Room
 	{

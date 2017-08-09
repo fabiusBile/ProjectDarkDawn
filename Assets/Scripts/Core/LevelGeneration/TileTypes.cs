@@ -1,17 +1,11 @@
 ﻿using System;
 
-namespace LevelGeneration
+namespace Level
 {
-	public enum TileTypes
-	{
-		empty,
-		ground,
-		wallBottom,
-		wallMiddle,
-		wallTop,
-		wallLeft,
-		wallRight,
-		wall
-	}
+    public enum TileTypes
+    {
+        empty,
+        ground,
+        wall
+    }
 }
-

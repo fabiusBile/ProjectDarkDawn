@@ -7,6 +7,24 @@ public struct Point
 	public int x;
 	public int y;
 
+
+//	public int Y {
+//		get {
+//			return y;
+//		}
+//		set {
+//			y = value;
+//		}
+//	}
+//	public int X {
+//		get {
+//			return x;
+//		}
+//		set {
+//			x = value;
+//		}
+//	}
+//
 	public static Point Up {
 		get {
 			return new Point (0, 1);
@@ -33,6 +51,10 @@ public struct Point
 		this.y = y;
 	}
 
+	public Point (Vector3 vector){
+		this.x = Mathf.RoundToInt (vector.x);
+		this.y = Mathf.RoundToInt (vector.z);
+	}
 	public Point(Vector2 vector){
 		this.x = Mathf.RoundToInt(vector.x);
 		this.y = Mathf.RoundToInt (vector.y);
