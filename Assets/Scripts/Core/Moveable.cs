@@ -20,10 +20,10 @@ public class Moveable : MonoBehaviour {
 	public void Move(Vector3 target){
 		this.target = target;
 		Vector3 direction = Vector3.ClampMagnitude (new Vector3 (target.x - isoTransform.Position.x, target.y - isoTransform.Position.y, target.z - isoTransform.Position.z),1f);
-		Debug.Log (direction);
+//		Debug.Log (direction);
 
 		foreach (Animator animator in animators) {
-			Debug.Log (Mathf.Round (direction.x * 10f) / 10f);
+//			Debug.Log (Mathf.Round (direction.x * 10f) / 10f);
 			if (Mathf.Round(direction.x*10f)/10f>=0.5 && direction.z >=0.5) {
 				animator.SetFloat ("Direction", 0);
 			}

@@ -7,6 +7,7 @@ public class EnemyController : Entity, ILiving {
 
 	IsoTransform target;
 	Moveable moveable;
+	[SerializeField]
 	private float hp;
 	Entity targetEntity;
 	// Use this for initialization
@@ -46,6 +47,7 @@ public class EnemyController : Entity, ILiving {
 	public void Die ()
 	{
 		Debug.Log ("Enemy is dead!");
+		GameObject.Destroy (gameObject);
 	}
 
 	public float Hp {

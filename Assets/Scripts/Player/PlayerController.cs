@@ -27,12 +27,18 @@ public class PlayerController : Entity, ILiving
 
 	private float hp = 100;
 
+	[SerializeField]
+	private Weapon weapon;
+
 	void Awake ()
 	{
 		hpBar.maxValue = MaxHp;
 		isoTransform = this.GetOrAddComponent<IsoTransform> (); //avoids polling the IsoTransform component per frame
 		animators = this.transform.GetChild (0).GetComponentsInChildren<Animator> ();
 		rb = GetComponent<Rigidbody> ();
+
+		weapon = GetComponent<Weapon> ();
+
 		//lvl = GameObject.Find ("Level").GetComponent<LevelGeneration> ();
 	}
 
@@ -43,15 +49,21 @@ public class PlayerController : Entity, ILiving
 
 	void Update ()
 	{
+		if (Input.GetAxis ("Fire1") != 0 ) {
+			if (weapon.CanAttack) {
+				weapon.StartAttack (crosshair.Position);
+			} else {
+				Debug.Log ("I cant attack right now!");
+			}
+		}
+
 		foreach (Animator animator in animators) {
 			if (Input.GetAxis ("Vertical") != 0 || Input.GetAxis ("Horizontal") != 0) {
 				animator.SetFloat ("Speed", 1);
 			} else {
 				animator.SetFloat ("Speed", 0);
 			}
-			if (Input.GetAxis ("Fire1") != 0) {
-				animator.SetBool ("Attack", true);
-			}
+
 		}
 	}
 
@@ -87,12 +99,9 @@ public class PlayerController : Entity, ILiving
 		lookDirection.Normalize ();
 		moveDirection = Isometric.IsoToScreen (moveDirection);
 		rb.velocity = moveDirection * Speed;
-		//rb.AddForce (moveDirection * Speed);
-		//rb.MovePosition (transform.position + moveDirection * Time.deltaTime * Speed);
 		isoTransform.Position = Isometric.ScreenToIso (transform.position);
 
-		//isoTransform.Translate(moveDirection * Time.deltaTime * Speed);
-		//	rb.velocity = Isometric.IsoToScreen(direction*Speed);
+
 		foreach (Animator animator in animators) {
 			if (Mathf.Round (lookDirection.x * 10f) / 10f >= 0.5 && lookDirection.z >= 0.5) {
 				animator.SetFloat ("Direction", 0);
@@ -112,6 +121,7 @@ public class PlayerController : Entity, ILiving
 
 	public void StopAttack ()
 	{
+		weapon.EndAttack ();
 		foreach (Animator animator in animators) {
 			animator.SetBool ("Attack", false);
 		}
@@ -131,7 +141,7 @@ public class PlayerController : Entity, ILiving
 			Die ();
 		}
 
-		Debug.Log (hp);
+		//Debug.Log (hp);
 	}
 
 	public void Die ()
