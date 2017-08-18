@@ -7,7 +7,7 @@ using System.Linq;
 using Level;
 using UnityEngine.UI;
 
-public class PlayerController : Entity, ILiving
+public class PlayerController : LivingEntity
 {
 
 	public float Speed = 10;
@@ -19,14 +19,7 @@ public class PlayerController : Entity, ILiving
 
 	private Rigidbody rb;
 
-	[SerializeField]
-	private float MaxHp = 100;
-
-	[SerializeField]
-	private Slider hpBar;
-
-	private float hp = 100;
-
+	//public Vector3 gpos = new Vector3 (0, -0.9f, 0);
 	[SerializeField]
 	private Weapon weapon;
 
@@ -37,18 +30,13 @@ public class PlayerController : Entity, ILiving
 		animators = this.transform.GetChild (0).GetComponentsInChildren<Animator> ();
 		rb = GetComponent<Rigidbody> ();
 
-		weapon = GetComponent<Weapon> ();
-
 		//lvl = GameObject.Find ("Level").GetComponent<LevelGeneration> ();
-	}
-
-	void Start(){
-        //pathfinder = new EnemyAStar();
-       // pathfinder.LevelGenerator = lvl;
 	}
 
 	void Update ()
 	{
+		//transform.GetChild (0).transform.localPosition =  Isometric.IsoToScreen(gpos);
+
 		if (Input.GetAxis ("Fire1") != 0 ) {
 			if (weapon.CanAttack) {
 				weapon.StartAttack (crosshair.Position);
@@ -119,41 +107,18 @@ public class PlayerController : Entity, ILiving
 		}
 	}
 
-	public void StopAttack ()
-	{
-		weapon.EndAttack ();
-		foreach (Animator animator in animators) {
-			animator.SetBool ("Attack", false);
-		}
-	}
+//	public void StopAttack ()
+//	{
+//		weapon.EndAttack ();
+//		foreach (Animator animator in animators) {
+//			animator.SetBool ("Attack", false);
+//		}
+//	}		
 
-	#region ILiving implementation
-
-	public void TakeDamage (float damageAmount)
-	{
-		if (hp > 0) {
-			hp -= damageAmount;
-		}
-
-		hpBar.value = hp;
-
-		if (hp <= 0) {
-			Die ();
-		}
-
-		//Debug.Log (hp);
-	}
-
-	public void Die ()
+	override public void Die ()
 	{
 		Debug.Log ("Player is dead!");
 	}
 
-	public float Hp {
-		get {
-			return hp;
-		}
-	}
 
-	#endregion
 }

@@ -1,18 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Assets.UltimateIsometricToolkit.Scripts.Core;
-using UnityEngine;
+using Assets.UltimateIsometricToolkit.Scripts.Utils;
 
-public class EnemyController : Entity, ILiving {
+using UnityEngine;
+using UnityEngine.UI;
+public class EnemyController : LivingEntity, IController {
 
 	IsoTransform target;
 	Moveable moveable;
+
 	[SerializeField]
-	private float hp;
+	Transform hpBarPivot;
+
 	Entity targetEntity;
 	// Use this for initialization
+
+	Weapon weapon;
+
+	Animator[] animators;
+
+	IsoTransform isoTransform;
 	void Start () {
 		moveable = GetComponent<Moveable> ();
+		hpBar.maxValue = hp;
+		hpBar.value = hp;
+		weapon = GetComponent<Weapon> ();
+		isoTransform = GetComponent<IsoTransform> ();
+		animators = this.transform.GetChild (0).GetComponentsInChildren<Animator> ();
+
 	}
 
 	void OnTriggerEnter(Collider collider){
@@ -24,38 +40,37 @@ public class EnemyController : Entity, ILiving {
 
 	// Update is called once per frame
 	void Update () {
-		if (target != null) {
-			moveable.Move (target.Position);
-			if (targetEntity is ILiving) {
-				ILiving living = (ILiving)targetEntity;
-				living.TakeDamage (0.01f);
+		
+		hpBar.transform.position = Camera.main.WorldToScreenPoint (hpBarPivot.position);
+
+		if (target != null ) {
+			if (Vector3.Distance (isoTransform.Position, target.Position) <= weapon.Range) {
+				if (weapon.CanAttack) {
+					weapon.StartAttack (target.Position);
+				}
+				moveable.Stop ();
+			} else {
+				moveable.Move (target.Position);
 			}
 		}
 	}
 
-	#region ILiving implementation
+	#region IController implementation
 
-	public void TakeDamage (float damageAmount)
-	{
-		hp -= damageAmount;
-
-		if (hp <= 0) {
-			Die ();
+		public void StopAttack ()
+		{
+			weapon.EndAttack ();
+			foreach (Animator animator in animators) {
+				animator.SetBool ("Attack", false);
+			}
 		}
-	}
-
-	public void Die ()
-	{
-		Debug.Log ("Enemy is dead!");
-		GameObject.Destroy (gameObject);
-	}
-
-	public float Hp {
-		get {
-			return hp;
-		}
-	}
-
 
 	#endregion
+
+	public override void Die ()
+	{
+		Debug.Log ("Enemy is dead!");
+		GameObject.Destroy (hpBar.gameObject);
+		GameObject.Destroy (gameObject);
+	}
 }

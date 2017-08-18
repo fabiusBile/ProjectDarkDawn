@@ -2,14 +2,14 @@
 using System.Collections;
 using System.Text.RegularExpressions;
 using UnityEditor;
-
+using System.Collections.Generic;
 
 public class Animated : MonoBehaviour {
 	string spritePath;
 	Sprite[] sprites;
 	SpriteRenderer sRenderer;
 	public Texture2D spriteSheet;
-	PlayerController player;
+	IController controller;
 
 	void Awake(){
 		spritePath = AssetDatabase.GetAssetPath (spriteSheet);
@@ -18,7 +18,7 @@ public class Animated : MonoBehaviour {
 		sprites = Resources.LoadAll<Sprite>(spritePath);
 
 		sRenderer = GetComponent<SpriteRenderer> ();
-		player = transform.parent.parent.GetComponent<PlayerController> ();
+		controller = transform.GetComponentInParent<IController> ();
 	}
 	// Update is called once per frame
 	void LateUpdate () {
@@ -40,7 +40,11 @@ public class Animated : MonoBehaviour {
 		}
 
 	}
-	public void StopAttack(){
-		player.StopAttack ();
-	}
+//	public void StopAttack(){
+//		controller.StopAttack ();
+//	}
+
+//	public void DoAttack(string testString){
+//		Debug.Log (testString);
+//	}
 }
