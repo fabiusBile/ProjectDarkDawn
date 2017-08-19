@@ -16,6 +16,8 @@ public class MeleeWeapon : Weapon {
 	[SerializeField]
 	float radiusModifier = 1;
 
+
+	List<LivingEntity> attackedTargets;
 	public float Radius {
 		get {
 			return radius * radiusModifier;
@@ -28,9 +30,13 @@ public class MeleeWeapon : Weapon {
 		}
 	}
 
+	protected bool AttackStarted = false;
 
 
-
+	public void Update(){
+		if (AttackStarted)
+			DoAttack ();
+	}
 
 	[SerializeField]
 	float attackStartDistance;
@@ -41,6 +47,16 @@ public class MeleeWeapon : Weapon {
 	void Start(){
 		isoTransform = transform.root.GetComponent<IsoTransform> ();
 		base.Start ();
+	}
+
+	void StartDoDamage(){
+		AttackStarted = true;
+		attackedTargets = new List<LivingEntity> ();
+	}
+
+	override public void EndAttack(){
+		base.EndAttack ();
+		AttackStarted = false;
 	}
 
 	override protected void DoAttack ()
@@ -73,7 +89,10 @@ public class MeleeWeapon : Weapon {
 				Debug.Log (hit.collider.name);
 				try {
 					LivingEntity en = hitTransform.GetComponent<LivingEntity>();
+					if (!attackedTargets.Contains(en)){
 						en.TakeDamage(Damage);
+						attackedTargets.Add(en);
+					}
 				} catch {
 					continue;
 				}

@@ -5,7 +5,7 @@ using Assets.UltimateIsometricToolkit.Scripts.Utils;
 
 using UnityEngine;
 using UnityEngine.UI;
-public class EnemyController : LivingEntity, IController {
+public class EnemyController : LivingEntity {
 
 	IsoTransform target;
 	Moveable moveable;
@@ -14,8 +14,8 @@ public class EnemyController : LivingEntity, IController {
 	Transform hpBarPivot;
 
 	Entity targetEntity;
-	// Use this for initialization
 
+	[SerializeField]
 	Weapon weapon;
 
 	Animator[] animators;
@@ -25,7 +25,6 @@ public class EnemyController : LivingEntity, IController {
 		moveable = GetComponent<Moveable> ();
 		hpBar.maxValue = hp;
 		hpBar.value = hp;
-		weapon = GetComponent<Weapon> ();
 		isoTransform = GetComponent<IsoTransform> ();
 		animators = this.transform.GetChild (0).GetComponentsInChildren<Animator> ();
 
@@ -44,28 +43,18 @@ public class EnemyController : LivingEntity, IController {
 		hpBar.transform.position = Camera.main.WorldToScreenPoint (hpBarPivot.position);
 
 		if (target != null ) {
-			if (Vector3.Distance (isoTransform.Position, target.Position) <= weapon.Range) {
+			if (Vector3.Distance (isoTransform.Position, target.Position) <= weapon.Range ) {
 				if (weapon.CanAttack) {
 					weapon.StartAttack (target.Position);
 				}
 				moveable.Stop ();
-			} else {
+			} else if (!weapon.DoDamage) {
 				moveable.Move (target.Position);
 			}
 		}
 	}
 
-	#region IController implementation
 
-		public void StopAttack ()
-		{
-			weapon.EndAttack ();
-			foreach (Animator animator in animators) {
-				animator.SetBool ("Attack", false);
-			}
-		}
-
-	#endregion
 
 	public override void Die ()
 	{

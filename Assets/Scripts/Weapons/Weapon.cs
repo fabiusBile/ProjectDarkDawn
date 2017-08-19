@@ -25,6 +25,12 @@ abstract public class Weapon : MonoBehaviour {
 	protected float range;
 
 	public float Range {
+		get{
+			return range;
+		}
+	}
+
+	public float ModifiedRange {
 		get {
 			return range*rangeModifier;
 		}
@@ -41,7 +47,6 @@ abstract public class Weapon : MonoBehaviour {
 		}
 	}
 
-	private bool doDamage = false;
 
 	public bool DoDamage {
 		get {
@@ -59,10 +64,11 @@ abstract public class Weapon : MonoBehaviour {
 
 	}
 
-	public void StartAttack(Vector3 target){
+	public virtual void StartAttack(Vector3 target){
 		if (canAttack) {
 			this.target =  target;
 			SetAttackAnim ();
+			DoAttack ();
 		} else {			
 			throw new CantAttackException ("Cant attack now, wait for cooldown");
 		}
@@ -74,25 +80,15 @@ abstract public class Weapon : MonoBehaviour {
 		}
 	}
 		
-	public void Update(){
-		if (doDamage)
-			DoAttack ();
-	}
-
 	protected virtual void DoAttack(){}
 
 	protected virtual void AfterAttack(){}
 
-	void StartDoDamage(){
-		doDamage = true;
-	}
-
-	public void EndAttack(){
+	public virtual void EndAttack(){
 		StartCoroutine (MakeCooldown());
 		foreach (Animator anim in animators) {
 			anim.SetBool ("Attack", false);
 		}
-		doDamage = false;
 	}
 
 	IEnumerator MakeCooldown(){
