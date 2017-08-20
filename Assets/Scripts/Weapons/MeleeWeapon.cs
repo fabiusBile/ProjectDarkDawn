@@ -7,15 +7,19 @@ using Assets.UltimateIsometricToolkit.Scripts.Core;
 public class MeleeWeapon : Weapon {
 
 	[SerializeField]
-	float damage;
+	float damage = 1;
+
 	[SerializeField]
 	float damageModifier = 1;
 
 	[SerializeField]
-	float radius;
+	float radius = 1;
+
 	[SerializeField]
 	float radiusModifier = 1;
 
+	[SerializeField]
+	float attackStartDistance = 1;
 
 	List<LivingEntity> attackedTargets;
 	public float Radius {
@@ -30,7 +34,7 @@ public class MeleeWeapon : Weapon {
 		}
 	}
 
-	protected bool AttackStarted = false;
+	public bool AttackStarted = false;
 
 
 	public void Update(){
@@ -38,13 +42,9 @@ public class MeleeWeapon : Weapon {
 			DoAttack ();
 	}
 
-	[SerializeField]
-	float attackStartDistance;
-
-
 	IsoTransform isoTransform;
 
-	void Start(){
+	override public void Start(){
 		isoTransform = transform.root.GetComponent<IsoTransform> ();
 		base.Start ();
 	}
@@ -84,9 +84,9 @@ public class MeleeWeapon : Weapon {
 
 			Transform hitTransform = hit.collider.transform;
 
-			if (hitTransform != this.transform.root) {
+            if (isoTransform.tag != hitTransform.tag ) {
 				//Vector3 __direction = hit.collider.transform.position - attackStartPos;
-				Debug.Log (hit.collider.name);
+//				Debug.Log (hit.collider.name);
 				try {
 					LivingEntity en = hitTransform.GetComponent<LivingEntity>();
 					if (!attackedTargets.Contains(en)){

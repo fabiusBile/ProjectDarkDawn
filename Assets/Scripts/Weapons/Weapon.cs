@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.UltimateIsometricToolkit.Scripts.Utils;
-using UnityEditor.Animations;
+//using UnityEditor.Animations;
 
 
 public class CantAttackException : UnityException{
@@ -17,14 +17,13 @@ public class CantAttackException : UnityException{
 
 abstract public class Weapon : MonoBehaviour {
 
-
 	[SerializeField]
 	protected float rangeModifier=1;
 
 	[SerializeField]
 	protected float range;
 
-	public float Range {
+	public virtual float Range {
 		get{
 			return range;
 		}
@@ -58,7 +57,7 @@ abstract public class Weapon : MonoBehaviour {
 
 	Animator[] animators;
 
-	public void Start(){
+	public virtual void Start(){
 		
 		animators=this.transform.root.GetComponentsInChildren<Animator> ();
 

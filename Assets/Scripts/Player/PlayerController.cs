@@ -15,7 +15,7 @@ public class PlayerController : LivingEntity
 	private IsoTransform isoTransform;
 
 	[SerializeField]
-	private IsoTransform crosshair;
+    private IsoTransform crosshair = null;
 
 	private Rigidbody rb;
 
@@ -29,8 +29,6 @@ public class PlayerController : LivingEntity
 		isoTransform = this.GetOrAddComponent<IsoTransform> (); //avoids polling the IsoTransform component per frame
 		animators = this.transform.GetChild (0).GetComponentsInChildren<Animator> ();
 		rb = GetComponent<Rigidbody> ();
-
-		//lvl = GameObject.Find ("Level").GetComponent<LevelGeneration> ();
 	}
 
 	void Update ()

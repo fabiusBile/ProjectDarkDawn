@@ -1,50 +1,69 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Text.RegularExpressions;
+
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using System.Collections.Generic;
 
-public class Animated : MonoBehaviour {
-	string spritePath;
-	Sprite[] sprites;
-	SpriteRenderer sRenderer;
-	public Texture2D spriteSheet;
-	IController controller;
 
-	void Awake(){
-		spritePath = AssetDatabase.GetAssetPath (spriteSheet);
-		spritePath = spritePath.Replace (".png", "");
-		spritePath = spritePath.Replace ("Assets/Resources/", "");
-		sprites = Resources.LoadAll<Sprite>(spritePath);
+[ExecuteInEditMode]
+public class Animated : MonoBehaviour
+{
 
-		sRenderer = GetComponent<SpriteRenderer> ();
-		controller = transform.GetComponentInParent<IController> ();
-	}
-	// Update is called once per frame
-	void LateUpdate () {
+    public string spritePath;
+    Sprite[] sprites;
+    SpriteRenderer sRenderer;
 
-		// Так как для всех спрайтов персонажей и экипировки используются атласы с одинаковым расположением спрайтов
-		// вместо необходимости заново настраивать анимацию для каждого предмета во время игры выбираются спрайты с тем же номером, что и у
-		// тела персонажа
-		if (sprites.Length > 0) {
-			string baseSpriteName = sRenderer.sprite.name;
+    public Texture2D spriteSheet;
+    IController controller;
 
-			// Отделение номера спрайта от его имени
+    void Awake()
+    {
 
-			string spriteName = Regex.Match (baseSpriteName, @"\d*$").Value;
+        sRenderer = GetComponent<SpriteRenderer>();
+        controller = transform.GetComponentInParent<IController>();
+                sprites = Resources.LoadAll<Sprite>(spritePath);
 
-			//Выбор из атласа спрайта с тем же номером, что и у тела в данный кадр анимации 
+    }
+    // Update is called once per frame
+    void LateUpdate()
+    {
 
-			Sprite newSprite = sprites [int.Parse (spriteName)];
-			sRenderer.sprite = newSprite;
-		}
+        // Так как для всех спрайтов персонажей и экипировки используются атласы с одинаковым расположением спрайтов
+        // вместо необходимости заново настраивать анимацию для каждого предмета во время игры выбираются спрайты с тем же номером, что и у
+        // тела персонажа
+        if (sprites.Length > 0)
+        {
+            string baseSpriteName = sRenderer.sprite.name;
 
-	}
-//	public void StopAttack(){
-//		controller.StopAttack ();
-//	}
+            // Отделение номера спрайта от его имени
 
-//	public void DoAttack(string testString){
-//		Debug.Log (testString);
-//	}
+            string spriteName = Regex.Match(baseSpriteName, @"\d*$").Value;
+
+            //Выбор из атласа спрайта с тем же номером, что и у тела в данный кадр анимации 
+
+            Sprite newSprite = sprites[int.Parse(spriteName)];
+            sRenderer.sprite = newSprite;
+        }
+
+    }
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        spritePath = AssetDatabase.GetAssetPath(spriteSheet);
+        spritePath = spritePath.Replace(".png", "");
+        spritePath = spritePath.Replace("Assets/Resources/", "");
+
+    }
+#endif
+    //	public void StopAttack(){
+    //		controller.StopAttack ();
+    //	}
+
+    //	public void DoAttack(string testString){
+    //		Debug.Log (testString);
+    //	}
 }

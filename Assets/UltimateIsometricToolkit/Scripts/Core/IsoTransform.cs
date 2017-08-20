@@ -1,7 +1,11 @@
 ﻿using System.Collections.Generic;
 using Assets.UltimateIsometricToolkit.Scripts.External;
 using Assets.UltimateIsometricToolkit.Scripts.Utils;
+
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
+
 using UnityEngine;
 
 namespace Assets.UltimateIsometricToolkit.Scripts.Core {

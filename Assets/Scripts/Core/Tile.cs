@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Level
 {
-    public class Tile : MonoBehaviour, SettlersEngine.IPathNode<System.Object>
+    public class Tile : MonoBehaviour
     {
 
         public Point Position { get; set; }
